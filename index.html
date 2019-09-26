@@ -2,11 +2,76 @@
 <html>
 <head>
 	<title>Title</title>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<style type="text/css">
+		*{
+			margin: 0;padding: 0;
+		}
+		.main{
+			/*border: 1px solid #000;*/
+			width: 500px;
+			height: 1000px;
+    		overflow: hidden;
+		}
+		.box{
+			width: 2100px;
+			height: 1000px;
+			overflow-x: hidden;
+		}
+		.page{
+			width: 400px;	
+			height: 1000px;
+			border:1px solid red;
+			float: left;
+    		overflow: hidden;
+		}
+	</style>
 </head>
-<body>
+<body scroll="no">
+
+<div class="main">
+	<div class="box">
+		<ul>
+			<li class="page">
+				<div>
+					1
+					<button style="font-size: 40px" id="go">dddd</button>
+				</div>
+			</li>
+			<li class="page">
+				<div>
+					2
+				</div>
+			</li>
+			<li class="page">
+				<div>
+					3
+				</div>
+			</li>
+			<li class="page">
+				<div>
+					4
+				</div>
+			</li>
+			<li class="page">
+				<div>
+					5
+				</div>
+			</li>
+		</ul>
+	</div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+	$("#go").on("click",function(){
+		$(this).parent().parent().hide("slow");
+		// $(this).parent().parent().animate({marginRight:'500px'},1000);;
+	})
+</script>
 </body>
 </html>
