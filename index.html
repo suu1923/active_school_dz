@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>我为祖国送祝福</title>
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="apple-mobile-web-app-capable" content="no">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -258,6 +258,10 @@
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript">
 	$(jQuery).ready(function(){
+		// 
+		document.body.addEventListener("touchmove", function (event) {
+			event.preventDefault();
+		}, {passive: false});
 		// set page width and height
 		$(".box").css("width",($(window).width())*4);
 		$(".page").css({
