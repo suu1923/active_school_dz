@@ -62,7 +62,39 @@ $("#two_btn").on("click", function () {
     $(".write_content").show();
 })
 
-function draw(imgArr, title, callback) {
+// 文字自动换行
+function textPrewrap(ctx, content, drawX, drawY, lineHeight, lineMaxWidth, lineNum) {
+    var drawTxt = ''; // 当前绘制的内容
+    var drawLine = 1; // 第几行开始绘制
+    var drawIndex = 0; // 当前绘制内容的索引
+    // 判断内容是否可以一行绘制完毕
+    if (ctx.measureText(content).width <= lineMaxWidth) {
+        ctx.fillText(content.substring(drawIndex, i), drawX, drawY);
+    } else {
+        for (var i = 0; i < content.length; i++) {
+            drawTxt += content[i];
+            if (ctx.measureText(drawTxt).width >= lineMaxWidth) {
+                if (drawLine >= lineNum) {
+                    ctx.fillText(content.substring(drawIndex, i) + '..', drawX, drawY);
+                    break;
+                } else {
+                    ctx.fillText(content.substring(drawIndex, i + 1), drawX, drawY);
+                    drawIndex = i + 1;
+                    drawLine += 1;
+                    drawY += lineHeight;
+                    drawTxt = '';
+                }
+            } else {
+                // 内容绘制完毕，但是剩下的内容宽度不到lineMaxWidth
+                if (i === content.length - 1) {
+                    ctx.fillText(content.substring(drawIndex), drawX, drawY);
+                }
+            }
+        }
+    }
+}
+
+function draw(imgArr, title, content, callback) {
     let c = document.getElementById('canvas'),
         ctx = c.getContext('2d'),
         len = imgArr.length
@@ -93,9 +125,14 @@ function draw(imgArr, title, callback) {
                 // 0:背景 1:人物 2:头像
                 if (n == 0) {
                     ctx.drawImage(img, 0, 0, c.width, c.height)
-                    canvas_text(ctx, title, "62px bold 微软雅黑", "#FFF", c.height * 0.15)
+                    // canvas_text(ctx, title, "62px bold 微软雅黑", "#FFF", c.height * 0.15)
+                    ctx.font = '30px bold'
+                    ctx.textAlign = "center"
+                    ctx.fillStyle = "#fff"
+                    canvas_text(ctx, title, '30px bold', "#fff", c.height * 0.12)
+                    textPrewrap(ctx, content, c.width * 0.5, c.height * 0.15, 31, 400, 2)
                 } else if (n == 1) {
-                    ctx.drawImage(img, (c.width / 2) * 0.45, c.height * 0.25, c.width * 0.6, c.width * 0.6)
+                    ctx.drawImage(img, (c.width / 2) * 0.25, c.height * 0.25, c.width * 0.8, c.width * 0.6)
                 } else if (n == 2) {
                     ctx.drawImage(img, (c.width / 2) * 0.825, (c.height / 1.125), c.width * 0.2, c.width * 0.2)
                 }
@@ -115,40 +152,40 @@ $("#reset_btn").on("click", function () {
     $("input,textarea").val("");
     $(".write_title input").focus()
 })
-$(".share").on('click',function(){
+$(".share").on('click', function () {
     $(".mask_pic").show();
 })
-$(".mask_pic").on("click",function(){
+$(".mask_pic").on("click", function () {
     $(this).hide()
 })
 $("#save_btn").on("click", function () {
     // judge data
     var title = $(".write_title input").val();
     var content = $(".write_content textarea").val();
-    if(title.length == 0 || title.length > 5){
-    	alert("名字不能为空");
-    	$(".write_title input").focus();
-    	return false;
+    if (title.length == 0 || title.length > 5) {
+        alert("名字不能为空");
+        $(".write_title input").focus();
+        return false;
     }
-    if(content.length == 0 || content.length > 25){
-    	alert("内容不能为空");
-    	$(".write_content textarea").focus();
-    	return false;
+    if (content.length == 0 || content.length > 25) {
+        alert("内容不能为空");
+        $(".write_content textarea").focus();
+        return false;
     }
     // goto next
     $(this).parents("li").hide("slow");
-    
+
     // socket
     // 生成数组
     var userdata = {
         // headImg:"{$Think.session.wx_member_info.headimgurl}",
-        nickName:title,
-        content:content,
-        chooseNum:nowSortNum,
-        type:"user"
+        nickName: title,
+        content: content,
+        chooseNum: nowSortNum,
+        type: "user"
     }
     var ws = new WebSocket("ws://120.77.153.138:2346");
-    ws.onopen = function() {
+    ws.onopen = function () {
         console.log("socket connect success");
         ws.send(JSON.stringify(userdata));
         // console.log("给服务端发送一个字符串：tom");
@@ -160,7 +197,7 @@ $("#save_btn").on("click", function () {
     $("#slide_img_end").attr("src", peopleImage);
     $(".qr,.share").show("slow")
     let imgArr = ['static/images/share-bg.png', peopleImage, 'static/images/qr.png']
-    draw(imgArr, title+":<br/>"+content, function (e) {
+    draw(imgArr, title + ':', content, function (e) {
         // console.log(e)
         $('#getImage').attr('src', e)
     })
