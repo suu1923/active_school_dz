@@ -46,16 +46,16 @@ li {
 .goto_write {
   width: 100%;
   position: absolute;
-  bottom: 10px;
+  bottom: 30px;
   text-align: center;
 }
 
 .choose_num {
+  width: 100%;
   position: absolute;
-  top: 70px;
+  top: 90px;
   text-align: center;
 }
-
 .people_choose {
   position: absolute;
   top: 50%;
@@ -66,27 +66,31 @@ li {
   float: left;
   text-align: center;
   position: relative;
-  bottom: 90px;
+  bottom: 254px;
+  right: 50px;
 }
-
 .people_name {
+  display: block;
   margin-top: -50px;
   text-align: center;
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 24px;
   color: #fff;
 }
 
 .left_btn {
+  position: relative;
   float: left;
   width: 10%;
   margin-left: 10px;
+  z-index: 1;
 }
 
 .right_btn {
+  position: relative;
   float: left;
   width: 10%;
   margin-right: 10px;
+  z-index: 1;
 }
 
 /* three page */
@@ -108,8 +112,7 @@ li {
 
 input, textarea {
   border: none;
-  font-size: 26px;
-  border-color: aqua;
+  font-size: 24px;
   background-color: transparent;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
@@ -157,23 +160,33 @@ input, textarea {
   color: #fff;
 }
 
+.mask_pic{
+  position: absolute;
+  top: 0px;
+  // z-index: 9999;
+  
+}
+.mask_pic img{
+  opacity:0.3;
+  filter:alpha(opacity=30) /* IE8 及其更早版本 */
+}
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: rgb(182, 180, 180);
+  color: rgb(255,125,0);
   font-size: 20px;
 }
 
 input:-moz-placeholder, textarea:-moz-placeholder {
-  color: rgb(182, 180, 180);
+  color: rgb(255,125,0);
   font-size: 20px;
 }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
-  color: rgb(182, 180, 180);
+  color: rgb(255,125,0);
   font-size: 20px;
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  color: rgb(182, 180, 180);
+  color: rgb(255,125,0);
   font-size: 20px;
 }
 

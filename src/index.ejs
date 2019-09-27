@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>我为祖国送祝福</title>
     <meta name="viewport"
           content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -38,6 +38,7 @@
                     </div>
                     <div class="choose_num animate">
                         <img src="static/images/two-name.png" width="50%" height="50%" alt="">
+                        <br>
                         <span class='people_name' id="people_name"></span>
                     </div>
                     <div class="people_choose animate">
@@ -46,14 +47,14 @@
                         </div>
                         <!-- slide deault img -->
                         <div class="people">
-                            <img src="" id="slide_img" width="80%" alt="">
+                            <img src="" id="slide_img" width="140%" alt="">
                         </div>
                         <div class="right_btn">
                             <img src="static/images/right-btn.png" width="100%" class="fun_btn" alt="">
                         </div>
                     </div>
                     <div class="goto_write animate">
-                        <img src="static/images/success.png" width="20%" height="20%" alt="" id="two_btn">
+                        <img src="static/images/success2.png" width="20%" height="20%" alt="" id="two_btn">
                     </div>
                 </div>
             </li>
@@ -63,10 +64,10 @@
                         <img src="static/images/write-bg.png" width="100%" height="100%" alt="">
                     </div>
                     <div class="write_title animate">
-                        <input style="color: #fff" type="text" placeholder="请输入昵称" maxlength="5">
+                        <input style="color: #ffffff" type="text" placeholder="请输入昵称" maxlength="5">
                     </div>
                     <div class="write_content animate">
-                        <textarea style="color: rgb(224, 224, 224)" placeholder="请输入祝福话语25字以内" maxlength="25" cols="20"
+                        <textarea style="color: rgb(255,125,0)" placeholder="请输入祝福话语25字以内" maxlength="25" cols="20"
                                   rows="5"></textarea>
                     </div>
                     <div class="write_btn animate">
@@ -79,8 +80,11 @@
             </li>
             <li class="page">
                 <div class="page_4">
+                    <div class="mask_pic animate">
+                        <img src="static/images/share.png" width="100%" height="100%"  alt="">
+                    </div>
                     <canvas id="canvas" width="100%" height="100%" style="display: none"></canvas>
-                    <img alt="" id="getImage" style="width: 100%;">
+                    <img alt="" id="getImage">
                     <!--                    <div class="bg">-->
                     <!--                        <img src="static/images/share-bg.png" width="10%" alt="">-->
                     <!--                    </div>-->
@@ -108,7 +112,7 @@
     }, {passive: false});
 </script>
 <script>
-    new VConsole()
+    // new VConsole()
 </script>
 <%- include ejs/layout/footerSrc.ejs %>
 </body>

@@ -11,5 +11,5 @@ module.exports = {
         pages: 'pages/',
         dist: 'dist'
     },
-    isDev: process.env.isDev === '1',//是否是开发环境
+    isDev: process.env.isDev === '0',//是否是开发环境
 }
