@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <%- include ejs/layout/headerSrc.ejs %>
+</head>
+<body scroll="no">
+
+<div class="main">
+    <div class="box">
+        <ul>
+            <li class="page">
+                <div class="page_1">
+                    <!-- bg -->
+                    <div class="bg">
+                        <img src="static/images/index-bg.png" alt="">
+                    </div>
+                    <!-- star -->
+                    <div class="star">
+                        <img src="static/images/index-star.png" width="100%" height="100%" alt="">
+                    </div>
+                    <!-- button -->
+                    <div class="goto_next_page animate">
+                        <img src="static/images/start.png" width="20%" height="20%" alt="" id="start_btn">
+                    </div>
+                </div>
+            </li>
+            <li class="page">
+                <div class="page_2">
+                    <div class="bg">
+                        <img src="static/images/two-choose.png" width="100%" height="100%" alt="">
+                    </div>
+                    <div class="choose_num animate">
+                        <img src="static/images/two-name.png" width="50%" height="50%" alt="">
+                        <span class='people_name' id="people_name"></span>
+                    </div>
+                    <div class="people_choose animate">
+                        <div class="left_btn">
+                            <img src="static/images/left-btn.png" width="100%" class="fun_btn" alt="">
+                        </div>
+                        <!-- slide deault img -->
+                        <div class="people">
+                            <img src="" id="slide_img" width="80%" alt="">
+                        </div>
+                        <div class="right_btn">
+                            <img src="static/images/right-btn.png" width="100%" class="fun_btn" alt="">
+                        </div>
+                    </div>
+                    <div class="goto_write animate">
+                        <img src="static/images/success.png" width="20%" height="20%" alt="" id="two_btn">
+                    </div>
+                </div>
+            </li>
+            <li class="page">
+                <div class="page_3">
+                    <div class="bg">
+                        <img src="static/images/write-bg.png" width="100%" height="100%" alt="">
+                    </div>
+                    <div class="write_title animate">
+                        <input style="color: #fff" type="text" placeholder="请输入昵称" maxlength="5">
+                    </div>
+                    <div class="write_content animate">
+                        <textarea style="color: rgb(224, 224, 224)" placeholder="请输入祝福话语25字以内" maxlength="25" cols="20"
+                                  rows="5"></textarea>
+                    </div>
+                    <div class="write_btn animate">
+                        <img src="static/images/reset.png" id="reset_btn" width="40%" alt="">
+                        <br>
+                        <br>
+                        <img src="static/images/success.png" id="save_btn" width="40%" alt="">
+                    </div>
+                </div>
+            </li>
+            <li class="page">
+                <div class="page_4">
+                    <canvas id="canvas" width="100%" height="100%" style="display: none"></canvas>
+                    <img alt="" id="getImage" style="width: 100%;">
+                    <!--                    <div class="bg">-->
+                    <!--                        <img src="static/images/share-bg.png" width="10%" alt="">-->
+                    <!--                    </div>-->
+                    <div class="share animate">
+                        <img src="static/images/share-btn.png" width="30%" alt="">
+                    </div>
+                    <!--                    <div class="choosed_num">-->
+                    <!--                        <span class='people_name_end' id="people_name_end"></span>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="people_choosed animate">-->
+                    <!--                        &lt;!&ndash; slide deault img &ndash;&gt;-->
+                    <!--                        <img src="" id="slide_img_end" width="60%" alt="">-->
+                    <!--                    </div>-->
+                    <!--                    <div class="qr animate">-->
+                    <!--                        <img src="static/images/qr.png" id="save_img" width="20%" alt="">-->
+                    <!--                    </div>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    document.body.addEventListener("touchmove", function (event) {
+        event.preventDefault();
+    }, {passive: false});
+</script>
+<script>
+    new VConsole()
+</script>
+<%- include ejs/layout/footerSrc.ejs %>
+</body>
+</html>
