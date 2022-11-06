@@ -12,7 +12,7 @@
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.26.7",
     "ejs": "^2.6.2",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^7.0.1",
     "gulp-cached": "^1.1.1",
